@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Gags Viewer</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello Gags viewer!</string>
+    <string name="title">Title:</string>
+    <string name="gags_app_title">Gags Viewer</string>
+    <string name="notext_title">There is no more result go back :(</string>
+    <string name="goBackButton_title">Go back</string>
+    <string name="loading">Looding&#8230;&#8230;&#8230;</string>
+    <string name="connectionerr">Connection Error :(</string>
+    <string name="loadMoreButton">Load more</string>
+    <string name="aboutUS">Gags Viewer best images, animations, videos, jokes content provider</string>
+    <string name="about">About Us</string>
+    <string name="version">Version 1.0</string>
+    <string name="menu_item_clear_memory_cache">Clear memory cache</string>
+    <string name="menu_clear_cache">Clear Cahce</string>
+    <string name="menu_item_clear_cache">Clear disc cache</string>
+    <string name="exit">Exit</string>
+    <string name="refresh">Refresh</string>
+    <string name="search">Search</string>
+    <string name="no_internet_connection"> You have no internet connection!</string>
+    <string name="checking_internet_connection"> Checking for internet connection!</string>
+    <string name="app_name_part_1">Gags</string>
+    <string name="app_name_part_2">Viewer</string>
+    <string name="location">Location</string>
+    <string name="cant_read_folder">folder can\'t be read!</string>
+    <string name="nnew">New</string>
+    <string name="select">Select</string>
+    <string name="file_name">File name:</string>
+    <string name="cancel">Cancel</string>
+    <string name="create">Save</string>
+    <string name="no_data">No Data</string>
+
+    <color name="gray">#ffff0000</color>
+
+    <string name="err">Error</string>
+    <string name="file_dialog">FileDialog</string>
+    <string name="arrow_double_left_drawable">Double Left</string>
+    <string name="arrow_left_drawable">Left</string>
+    <string name="arrow_right_drawable">Right Left</string>
+    <string name="home_drawable">Home</string>
+    <string name="arrow_double_left">Double Left</string>
+    <string name="image_id">image_id</string>
+    <string name="animation_id">animation_id</string>
+    <string name="video_id">video_id</string>
+    <string name="jokes_id">jokes_id</string>
+    <string name="chk_images">Images</string>
+    <string name="chk_animations">Animations</string>
+    <string name="chk_video">Videos</string>
+    <string name="chk_jokes">Jokes</string>
+    <string name="chk_text">Select to Search</string>
+    <string name="chk_more">Click For Advanced Search</string>
+
+  
+	<string name="play">play</string>
+	<string name="pause">pause</string>
+	<string name="stop">stop</string>
+	<string name="next_frame">next frame</string>
+	<string name="prev_frame">prev frame</string>
+
+
+
+
+    <!-- Sherlock burdan bashdayir -->
+
+    <string name="application_name">Gags Viewer</string>
+    <!-- <string name="activity_name">ABS: Demos</string> -->
+    <string name="action_items">Action Items</string>
+    <string name="action_items_content">The action bar creates a unified and persistent navigation experience for your application and action items are a great way to provide a clear indication of what the user can do.</string>
+    <string name="action_modes">Action Modes</string>
+    <string name="action_modes_content">Action modes are used to display contextual information based on some interaction made by the user (long press, checkbox selection, etc). Like the normal action bar they also support splitting the action items to the bottom of the screen on small devices.</string>
+    <string name="action_modes_no_action_bar">Action Modes (No Action Bar)</string>
+    <string name="share_action_providers">Share Action Providers</string>
+    <string name="share_action_providers_content">This activity demonstrates how to use an ActionProvider for adding functionality to the Action Bar. In particular this demo is adding a menu item with ShareActionProvider as its action provider. The ShareActionProvider is responsible for managing the UI for sharing actions.\n\nFor now, ShareActionProviders must be displayed on the action bar</string>
+    <string name="action_providers">Action Providers</string>
+    <string name="action_providers_content">This activity demonstrates how to implement an ActionProvider for adding functionality to the Action Bar. In particular this demo creates an ActionProvider for launching the system settings and adds a menu item with that provider.</string>
+    <string name="collapsible">Collapsible Action Items</string>
+    <string name="collapsible_content">This activity is a demonstration of how collapsible action items work. When you are concerned about the available room for items on small screens you should use this feature.\n\nIf you are looking for a proper SearchView implementation, see this "Search Views" example.</string>
+    <string name="context_menus">Context Menus</string>
+    <string name="context_menus_content">Since both ActionBarSherlock and Android use \'Menu\' and \'MenuItem\' class names you must take extra care when using context menus. It is still very much possible to use both in a single activity.</string>
+    <string name="custom_navigation">Custom Navigation</string>
+    <string name="custom_navigation_content">If you find that list and tab navigation are not suitable for your application you may replace it with a custom layout.</string>
+    <string name="dialog">Dialog</string>
+    <string name="dialog_content">This is a demonstration of how you can give an activity the look of a dialog.\n\nWhile there is a light version of this theme, it cannot be set programmatically without disabling the fancy transparent outer background. In order for this effect the theme must be set in the manifest.</string>
+    <string name="feature_toggles">Feature Toggles</string>
+    <string name="feature_toggles_content">Use these buttons to create various configurations with the action bar to see how it behaves.</string>
+    <string name="iprogress">Indeterminate Progress</string>
+    <string name="iprogress_content">The action bar includes a standard indeterminate progress bar. The methods for accessing it are prefixed with `support`. See the source for this demo for more information.</string>
+    <string name="list_navigation">List Navigation</string>
+    <string name="list_navigation_content">List navigation requires the use of a special layout for the spinner item. Failure to use it will result in your spinner text being the same color as the action bar background on pre-3.0. See the source code of this demo for more information.</string>
+    <string name="overlay">Overlay</string>
+    <string name="overlay_content">Overlay can be useful if you have a lot of scrolling content, especially if that content is images. Remember to lead your content with a margin so that it starts below the action bar when scrolled to the top.</string>
+    <string name="preference">Preference</string>
+    <string name="preference_content">You can use the `SherlockPreferenceActivity` base class to place the action bar on top of a normal `PreferenceActivity`.\n\nThis does not yet support the use of `PreferenceFragments`, however.</string>
+    <string name="progress">Progress</string>
+    <string name="progress_content">The action bar includes a standard progress bar. The methods for accessing it are prefixed with `support`. See the source for this demo for more information.</string>
+    <string name="search_views">Search Views</string>
+    <string name="search_views_content">SearchView allows you provide a unified mechanism of searching with optional featurs such as auto-completion and an always-expanded mode.</string>
+    <string name="simple">Simple</string>
+    <string name="simple_content">This is a simple showcase of how easy it is to add the action bar to your activities. Take a look at the source code, it\'s surprisingly simple!</string>
+    <string name="split">Split Action Items</string>
+    <string name="split_content">This activity is a demonstration of how split action items work. When you are concerned about the available room for items on small screens you should use this feature.</string>
+    <string name="split_action_modes">Split Action Modes</string>
+    <string name="static_attach">Static Attachment</string>
+    <string name="static_attach_content">This is a simple showcase of how easy it is to add the action bar to your activities without having to extend from a custom activity. Take a look at the source code, it\'s surprisingly simple!</string>
+    <string name="styled">Styled</string>
+    <string name="styled_content">This is a simple showcase of how to style the action bar to your liking. Be sure to remember that you need to consider both the custom and native action bar when styling. Looking at this activity\'s style is a good way to start.</string>
+    <string name="submenus">Sub-menus</string>
+    <string name="submenus_content">This activity is a demonstration of how sub-menus work when they are either an action item or an item in the overflow menu.</string>
+    <string name="tab_navigation">Tab Navigation</string>
+    <string name="tab_navigation_content">Tabs can be useful for switching between a limited number of items. You can also collapse the main body of the action bar on small devices so that only the tab bar is displayed. See the source for more information.</string>
+    <string name="tab_navigation_collapsed">Tab Navigation (Collapsed)</string>
+    <string name="action_bar_share_with">Share with…</string>
+    <string name="action_bar_save">Save</string>
+    <string name="inline_preferences">In-line preferences</string>
+    <string name="dialog_based_preferences">Dialog-based preferences</string>
+    <string name="launch_preferences">Launch preferences</string>
+    <string name="preference_attributes">Preference attributes</string>
+    <string name="title_checkbox_preference">Checkbox preference</string>
+    <string name="summary_checkbox_preference">This is a checkbox</string>
+    <string name="title_edittext_preference">Edit text preference</string>
+    <string name="summary_edittext_preference">An example that uses an edit text dialog</string>
+    <string name="dialog_title_edittext_preference">Enter your favorite animal</string>
+    <string name="title_list_preference">List preference</string>
+    <string name="summary_list_preference">An example that uses a list dialog</string>
+    <string name="dialog_title_list_preference">Choose one</string>
+    <string name="title_intent_preference">Intent preference</string>
+    <string name="summary_intent_preference">Launches an Activity from an Intent</string>
+    <string name="title_my_preference">My preference</string>
+    <string name="summary_my_preference">This is a custom counter preference</string>
+    <string name="title_advanced_toggle_preference">Haunted preference</string>
+    <string name="summary_on_advanced_toggle_preference">I\'m on! :)</string>
+    <string name="summary_off_advanced_toggle_preference">I\'m off! :(</string>
+    <string name="title_parent_preference">Parent checkbox preference</string>
+    <string name="summary_parent_preference">This is visually a parent</string>
+    <string name="title_child_preference">Child checkbox preference</string>
+    <string name="summary_child_preference">This is visually a child</string>
+    <string name="example_preference_dependency">Example preference dependency</string>
+    <string name="title_wifi">WiFi</string>
+    <string name="title_wifi_settings">WiFi settings</string>
+    <string name="default_value_list_preference">beta</string>
+    <string name="default_value_edittext_preference">Default value</string>
+    <string name="youtube_api_demo">YouTube API Demos</string>
+    <string name="videowall_demo_name">Video Wall</string>
+    <string name="standalone_player_demo_name">Standalone Player</string>
+    <string name="playerview_demo_name">Simple PlayerView</string>
+    <string name="fragment_demo_name">Simple PlayerFragment</string>
+    <string name="player_controls_demo_name">Custom Player Controls</string>
+    <string name="action_bar_demo_name">Overlay ActionBar Demo</string>
+    <string name="fullscreen_demo_name">Custom Fullscreen Handling</string>
+    <string name="intents_demo_name">YouTube App Launcher Intents</string>
+    <string name="playerview_text">This is a YouTubePlayerView!</string>
+    <string name="playerfragment_text">This is a YouTubePlayerFragment!</string>
+    <string name="demo_select">Please select a demo:</string>
+    <!--
+         <string name="some_demos_disabled">* Your device is currently running Android API version <xliff:g id="current_version">%1$s</xliff:g>.</string>
+    <string name="list_item_disabled">Requires Android API version <xliff:g id="required_version">%1$s</xliff:g> or higher.</string>
+    -->
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="skip_to">Skip To</string>
+    <string name="seconds">secs</string>
+    <string name="player_style">Player Style</string>
+    <string name="def">Default</string>
+    <string name="minimal">Minimal</string>
+    <string name="chromeless">Chromeless</string>
+    <string name="play_video">Play video</string>
+    <string name="play_playlist">Play playlist</string>
+    <string name="start_index">Start index</string>
+    <string name="start_time">Start time (sec)</string>
+    <string name="autoplay">Autoplay</string>
+    <string name="lightbox_mode">Lightbox mode</string>
+    <string name="intent_select">Please select an action:</string>
+    <string name="intent_disabled">This intent is not supported with the currently installed version of YouTube.</string>
+    <!-- <string name="youtube_currently_installed">YouTube version installed on this device: <xliff:g id="youtube_version">%1$s</xliff:g>.</string> -->
+    <string name="youtube_not_installed">YouTube is not installed on this device.</string>
+    <string name="fullscreen_tutorial">This is a demo which shows how to handle fullscreen behaviour. This activity has differents layouts for portrait, landscape and fullscreen. The user can enter fullscreen either by using the player controller or programmatically by the programmer (here using a button). If your activity does not have a landscape layout, you can choose to automatically enter fullscreen when the device is rotated to landscape orientation.</string>
+    <string name="enter_fullscreen">Enter Fullscreen</string>
+    <string name="landscape_fullscreen">Always fullscreen in landscape</string>
+    <string name="actionbar_tutorial">This is a demo which shows how to use the ActionBar as an overlay when the video is playing in fullscreen. The actionbar will automatically fade away along with the player controls when the video is being played in fullscreen. While not in fullscreen the Actionbar is visible and does not overlay any of the views.</string>
+    <string name="error_thumbnail_view">There was an error initializing the YouTubeThumbnailView (%1$s)</string>
+    <string name="error_player">There was an error initializing the YouTubePlayer </string>
+    <string name="title_activity_image_zoom">Zoom(+/-)</string>
+    <string name="title_activity_animated">AnimatedActivity</string>
+
+</resources>
