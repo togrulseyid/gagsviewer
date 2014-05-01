@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <!-- <com.mopub.mobileads.MoPubView
+        android:id="@+id/Jokes_MopubAdView"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp" /> -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/Jokes_arrow_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/arrow_left_drawable"
+            android:contentDescription="@string/arrow_left_drawable" />
+
+        <ImageButton
+            android:id="@+id/Jokes_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/home_drawable"
+            android:contentDescription="@string/home_drawable" />
+
+        <ImageButton
+            android:id="@+id/Jokes_arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/arrow_right_drawable"
+            android:contentDescription="@string/arrow_right_drawable" />
+    </LinearLayout>
+
+</LinearLayout>

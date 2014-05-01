@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/vRelativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/vRefresh_internet"
+            style="@style/ButtonText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/vExit_from_app"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/green_button"
+            android:text="@string/refresh" />
+
+        <Button
+            android:id="@+id/vExit_from_app"
+            style="@style/ButtonText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/red_button"
+            android:text="@string/exit" />
+
+        <ImageView
+            android:id="@+id/vNo_internet_connection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/no_internet_connection"
+            android:src="@drawable/internet_connection" />
+
+        <TextView
+            android:id="@+id/vChecking_internet_connection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/checking_internet_connection"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/Olive"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/vNo_internet_connection2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vChecking_internet_connection"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"
+            android:text="@string/no_internet_connection"
+            android:textColor="@color/Red4ic1"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/vLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" 
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@android:id/list"
+                style="@style/dividedListStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="@android:color/transparent"
+                android:dividerHeight="2dp"
+                android:fastScrollEnabled="true"
+                android:listSelector="@drawable/list_selector"
+                                
+                android:smoothScrollbar="true" /><!-- 
+    android:layout_marginBottom="40dp" -->
+
+              <!-- <com.mopub.mobileads.MoPubView
+                  android:id="@+id/VideoMopubAdView"
+                  android:layout_width="fill_parent"
+                  android:layout_height="50dp"
+                  android:layout_alignParentBottom="true" /> -->
+
+            
+    
+            <ProgressBar
+                android:id="@+id/vProgresBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:background="@color/White"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:indeterminate="true"
+                android:indeterminateDrawable="@drawable/big_custom_progress_image_background" />
+            
+            <Button
+        		android:background="@drawable/blue_button"
+                android:layout_margin="3dp"
+                android:id="@+id/vGoBackButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vGoBackText"
+                android:layout_gravity="center_vertical"
+                android:text="@string/goBackButton_title"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView 
+                android:background="@drawable/yellow_button"
+                android:gravity="center"
+                android:layout_margin="20dp"
+                android:id="@+id/vGoBackText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="30dp"
+                android:text="@string/goBackButton_title"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>
