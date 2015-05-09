@@ -8,7 +8,7 @@
     <!-- android:background="@drawable/custom_tab_indicator_divider" -->
 
     <TextView
-        android:id="@+id/aboutUS"
+        android:id="@+id/textViewAboutUS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -21,7 +21,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/app_name"
+        android:id="@+id/textViewAppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -34,10 +34,10 @@
         android:typeface="serif" />
 
     <TextView
-        android:id="@+id/version"
+        android:id="@+id/textViewVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/app_name"
+        android:layout_below="@+id/textViewAppName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="@string/version"

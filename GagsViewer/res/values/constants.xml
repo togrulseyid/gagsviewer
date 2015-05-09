@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- SharedPreferences constants -->
+    <string name="_SP_MOBCHANNEL">spMobChannel</string>
+
+    <!-- APP_VERSION -->
+    <string name="_APP_VERSION">1.0.0</string>
+
+</resources>

@@ -27,56 +27,49 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuff.Mode;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.widget.ShareActionProvider;
 import com.togrulseyid.gags.libs.Constants;
 import com.togrulseyid.gags.libs.FileCache;
 import com.togrulseyid.gags.libs.MemoryCache;
+import com.togrulseyid.gags.operations.Utility;
+import com.togrulseyid.gags.viewer.R;
 import com.togrulseyid.gags.viewers.dialogs.FileDialog;
 import com.togrulseyid.gags.viewers.dialogs.SelectionMode;
-import com.togrulseyid.gags.viewer.R;
 
-public class AnimationViewer extends SherlockActivity {
+public class AnimationViewer extends ActionBarActivity {
 
 	private ProgressBar progressBar;
 	private static final int maxProges = 600;
-	private static final int REQUEST_SAVE = 0 ;
-	private static final int REQUEST_LOAD = 1 ;
-	private ShareActionProvider mShareActionProvider ;
+	private static final int REQUEST_SAVE = 0;
+	private static final int REQUEST_LOAD = 1;
 	private URLConnection urlConnection;
-	private File file ;
-	private String src ;
-	private String alt ;
+	private File file;
+	private String src;
+	private String alt;
 	private FileCache fileCache;
 	private boolean isDdownload = false;
 	private Intent in;
 	private Context context;
-	private GifDecoder mGifDecoder  = null;
-    private boolean mIsPlayingGif = false;
-    private boolean sleep = true;
-    private Bitmap mTmpBitmap;
+	private GifDecoder mGifDecoder = null;
+	private boolean mIsPlayingGif = false;
+	private boolean sleep = true;
+	private Bitmap mTmpBitmap;
     
-	
-    /**
-     * Start point
-     * */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
-		super.onCreate(savedInstanceState);	
+		super.onCreate(savedInstanceState);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		if ( getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -91,10 +84,6 @@ public class AnimationViewer extends SherlockActivity {
 		alt = in.getStringExtra(Constants.TAG_ALT);
 		src = in.getStringExtra(Constants.TAG_SRC);
 
-		Log.d(Constants.TAG_SRC, ":"+src);
-		Log.d(Constants.TAG_ALT, ":"+alt);
-		
-		
 		new MainTask(context).execute(src);
 
 	}
@@ -115,18 +104,11 @@ public class AnimationViewer extends SherlockActivity {
 			}
 		super.onConfigurationChanged(newConfig);
 	}
-	
-    /**
-     * Action Bar Sherlock Menu creation
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.animations, menu);
-        MenuItem item = menu.findItem(R.id.share_animation);
-        mShareActionProvider = (ShareActionProvider) item.getActionProvider();
-        mShareActionProvider.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME);
-        mShareActionProvider.setShareIntent(createShareIntent(alt, src));
-        return super.onCreateOptionsMenu(menu);
+ 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.animations, menu);
+		return super.onCreateOptionsMenu(menu);
     }
     
     /**
@@ -140,7 +122,7 @@ public class AnimationViewer extends SherlockActivity {
 		    	finish();
 		    	return true;
 		    case R.id.share_animation:
-		    	setShareIntent(new Intent(Intent.ACTION_SEND));
+		    	Utility.shareData(this, alt, alt, src, null, "Share");
 		    	return true;
 		    	
 		    case R.id.save_animation:
@@ -239,53 +221,47 @@ public class AnimationViewer extends SherlockActivity {
     }
 	    
     /**
-     * Call to update the share intent
-     * */
-    private void setShareIntent(Intent shareIntent) {
-        if (mShareActionProvider != null) {
-            mShareActionProvider.setShareIntent(shareIntent);
-        }
-    }
-    
-    /**
      * Call to create the share intent
      * */
-	private Intent createShareIntent(String title, String source_txt) {	
-		// TODO Auto-generated method stub
-    	Intent share = new Intent(Intent.ACTION_SEND);
-    	share.setType("image/*");
-    	share.putExtra(Intent.EXTRA_STREAM, getURI(source_txt));
-    	share.putExtra(android.content.Intent.EXTRA_SUBJECT, title); 
-    	share.putExtra(android.content.Intent.EXTRA_TITLE, title);
-    	share.putExtra(android.content.Intent.EXTRA_TEXT, title);
-    	share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-		return share;
-    }
+//	private Intent createShareIntent(String title, String source_txt) {
+//		// TODO Auto-generated method stub
+//    	Intent share = new Intent(Intent.ACTION_SEND);
+//    	share.setType("image/*");
+//    	share.putExtra(Intent.EXTRA_STREAM, getURI(source_txt));
+//    	share.putExtra(android.content.Intent.EXTRA_SUBJECT, title); 
+//    	share.putExtra(android.content.Intent.EXTRA_TITLE, title);
+//    	share.putExtra(android.content.Intent.EXTRA_TEXT, title);
+//    	share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+//		return share;
+//    }
+	
+	
+	
 	
 	/**
 	 * Gets local FILE URI from source_txt 
 	 * */
-	private Uri getURI(String source_txt) {
-		// TODO Auto-generated method stub
-		if(fileCache==null)
-			fileCache = new FileCache(context);
-
-		try {
-			file = fileCache.getSharedFile(source_txt, FileCache.SHARED_GIF_FILE_NAME);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		if (file == null){
-			try {
-				file = getFromURL(source_txt);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return Uri.fromFile(file);
-	}
+//	private Uri getURI(String source_txt) {
+//		// TODO Auto-generated method stub
+//		if(fileCache==null)
+//			fileCache = new FileCache(context);
+//
+//		try {
+//			file = fileCache.getSharedFile(source_txt, FileCache.SHARED_GIF_FILE_NAME);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//		if (file == null){
+//			try {
+//				file = getFromURL(source_txt);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return Uri.fromFile(file);
+//	}
 	
 	/**
 	 * Download FILE from url string

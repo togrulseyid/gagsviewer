@@ -23,18 +23,6 @@ import java.util.concurrent.Executors;
 
 import org.apache.http.util.ByteArrayBuffer;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.widget.ShareActionProvider;
-import com.togrulseyid.gags.libs.Constants;
-import com.togrulseyid.gags.libs.FileCache;
-import com.togrulseyid.gags.libs.MemoryCache;
-import com.togrulseyid.gags.libs.Utils;
-import com.togrulseyid.gags.viewers.dialogs.FileDialog;
-import com.togrulseyid.gags.viewers.dialogs.SelectionMode;
-import com.togrulseyid.gags.viewer.R;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -44,50 +32,57 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-@SuppressLint("WorldReadableFiles")
-public class ImageViewer extends SherlockActivity {
+import com.togrulseyid.gags.libs.Constants;
+import com.togrulseyid.gags.libs.FileCache;
+import com.togrulseyid.gags.libs.MemoryCache;
+import com.togrulseyid.gags.libs.Utils;
+import com.togrulseyid.gags.operations.Utility;
+import com.togrulseyid.gags.viewer.R;
+import com.togrulseyid.gags.viewers.dialogs.FileDialog;
+import com.togrulseyid.gags.viewers.dialogs.SelectionMode;
+
+public class ImageViewer extends ActionBarActivity {
 	
-	private ImageViewTouch image;
+	private ImageViewTouch imageViewTouch;
 	private String source_txt, subject;
-	private ImageViewer v ;
-	private Intent in;
+	private ImageViewer imageViewer ;
+	private Intent intent;
 	private int loader;
 	private File file ;
 	private FileCache fileCache2 ;
-	private ShareActionProvider mShareActionProvider ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 			 
 		setContentView(R.layout.imageview);
 
-		image = (ImageViewTouch) findViewById(R.id.ImageViewTouch);
-		image.setDisplayType(DisplayType.FIT_TO_SCREEN );
+		imageViewTouch = (ImageViewTouch) findViewById(R.id.ImageViewTouch);
+		imageViewTouch.setDisplayType(DisplayType.FIT_TO_SCREEN );
 		
-		in = getIntent();
-		source_txt = in.getStringExtra(Constants.TAG_SRC);
-		subject = in.getStringExtra(Constants.TAG_ALT);
+		intent = getIntent();
+		source_txt = intent.getStringExtra(Constants.TAG_SRC);
+		subject = intent.getStringExtra(Constants.TAG_ALT);
 		
 		loader = R.drawable.loader;
-		v = new ImageViewer();
-		v.ImageLoader(getApplicationContext());
-		v.DisplayImage(source_txt, loader, image);
+		imageViewer = new ImageViewer();
+		imageViewer.ImageLoader(getApplicationContext());
+		imageViewer.DisplayImage(source_txt, loader, imageViewTouch);
 		getSupportActionBar().setTitle(subject);	
 		
 		
 		if ( getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-			Log.e("On Config Change", "LANDSCAPE");
 			getSupportActionBar().hide();
 		}
 	}
@@ -99,7 +94,7 @@ public class ImageViewer extends SherlockActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getSupportMenuInflater().inflate(R.menu.images, menu);
+        getMenuInflater().inflate(R.menu.menu_images, menu);
        
         try{
 	        fileCache2 = new FileCache(getApplicationContext());
@@ -107,52 +102,28 @@ public class ImageViewer extends SherlockActivity {
         }catch(Exception e){
         	
         }
-        MenuItem item = menu.findItem(R.id.share_image);
-        mShareActionProvider = (ShareActionProvider) item.getActionProvider();
-        mShareActionProvider.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME);
-        mShareActionProvider.setShareIntent(createShareIntent(subject, source_txt));
         
         return true;
     }
 
-    // Call to update the share intent
-    private void setShareIntent(Intent shareIntent) {
-        if (mShareActionProvider != null) {
-            mShareActionProvider.setShareIntent(shareIntent);
-        }
-    }
-    
-	private Intent createShareIntent(String title, String source_txt) {	
-    	Intent share = new Intent(Intent.ACTION_SEND);
-    	share.setType("image/*");
-    	share.putExtra(Intent.EXTRA_STREAM, getURI(source_txt));
-    	share.putExtra(android.content.Intent.EXTRA_SUBJECT, title); 
-    	share.putExtra(android.content.Intent.EXTRA_TITLE, title);
-    	share.putExtra(android.content.Intent.EXTRA_TEXT, title);
-    	share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-		return share;
-    }
-
-		
-	private Uri getURI(String source_txt) {
-		if(fileCache2==null)
-			fileCache2 = new FileCache(getApplicationContext());
-
-		try {
-			file = fileCache2.getSharedFile(source_txt, FileCache.SHARED_PNG_FILE_NAME);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		if (file == null){
-			try {
-				file = getFromURL(source_txt);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return Uri.fromFile(file);
-	}
+//	private Uri getURI(String source_txt) {
+//		if(fileCache2==null)
+//			fileCache2 = new FileCache(getApplicationContext());
+//
+//		try {
+//			file = fileCache2.getSharedFile(source_txt, FileCache.SHARED_PNG_FILE_NAME);
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		}
+//		if (file == null){
+//			try {
+//				file = getFromURL(source_txt);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return Uri.fromFile(file);
+//	}
     
 	public File getFromURL(String source_txt) throws IOException {
 		URL url = new URL(source_txt);
@@ -186,7 +157,10 @@ public class ImageViewer extends SherlockActivity {
 		    	finish();
 		    	return true;
 		    case R.id.share_image:
-		    	setShareIntent(new Intent(Intent.ACTION_SEND));
+		    	
+		    	Utility.shareData(this, subject, subject, source_txt, null, "Share");
+		    	
+		    	
 		    	return true;
 		    	
 		    case R.id.save_image:

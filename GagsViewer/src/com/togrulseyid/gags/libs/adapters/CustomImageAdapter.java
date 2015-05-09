@@ -1,10 +1,8 @@
 package com.togrulseyid.gags.libs.adapters;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.Activity;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,39 +11,36 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.togrulseyid.gags.libs.ImageLoader;
+import com.squareup.picasso.Picasso;
+import com.togrulseyid.gags.models.DataModel;
 import com.togrulseyid.gags.viewer.R;
 
 public class CustomImageAdapter extends BaseAdapter {
-	private ArrayList<HashMap<String, String>> gagsList;
-	private LayoutInflater inflater;	
-	private ImageLoader imageLoader;
-	private Typeface myFont1;	
-	private int loader = R.drawable.loader;
 
-	
-	public CustomImageAdapter(Context context,	ArrayList<HashMap<String, String>> gagsList) {
-		this.gagsList = gagsList;
+	private ArrayList<DataModel> dataModels;
+	private DataModel dataModel;
+	private LayoutInflater inflater;
+	private Typeface typeFace;
+	private int loader = R.drawable.loader;
+	private Activity activity;
+
+	public CustomImageAdapter(Activity activity, ArrayList<DataModel> gagsList) {
 		
-		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		imageLoader = new ImageLoader(context);
-		imageLoader.setContext(context);
-		myFont1 = Typeface.createFromAsset(context.getAssets(), "ttf/angrybirds_regular.ttf");	
-	}
+		this.activity = activity;
+		this.dataModels = gagsList;
+		inflater = this.activity.getLayoutInflater();
+		typeFace = Typeface.createFromAsset(this.activity.getAssets(), "ttf/angrybirds_regular.ttf");
 	
+	}
+
 	@Override
 	public int getCount() {
-		int size = 0;
-		try {
-			size = gagsList.size();
-		} catch (Exception e) {
-		}
-		return size;
+		return dataModels.size();
 	}
 
 	@Override
-	public HashMap<String, String> getItem(int position) {
-		return gagsList.get(position);
+	public DataModel getItem(int position) {
+		return dataModels.get(position);
 	}
 
 	@Override
@@ -53,45 +48,51 @@ public class CustomImageAdapter extends BaseAdapter {
 		return itemId;
 	}
 
-
-	@Override
-	public int getViewTypeCount() {
-	    if (getCount() != 0)
-	        return getCount();
-
-	    return 1;
-	}
-	
-	@SuppressLint("NewApi")
-	public View getView(int position, View view, ViewGroup viewGroup) {
-		View v = view;
+	public View getView(int position, View viewConvert, ViewGroup viewGroup) {
+		
+		View view = viewConvert;
 		ImageViewHolder holder = null;
-	
-		if (v == null) {
+
+		if (view == null) {
+
 			holder = new ImageViewHolder();
-			v = inflater.inflate(R.layout.image_list_item, null);
-			holder.image_list_item_title = (TextView) v.findViewById(R.id.image_list_item_title);
-			holder.image_list_item_tumbnail = (ImageView) v.findViewById(R.id.image_list_item_tumbnail);
-			v.setTag(holder);
-		} else
-			holder = (ImageViewHolder) v.getTag();
-		
-		
-		holder.image_list_item_title.setTypeface(myFont1);// TTF
-		holder.image_list_item_title.setText(getItem(position).get("alt"));
-		
-		try {
-			imageLoader.DisplayImage(getItem(position).get("src"), loader, holder.image_list_item_tumbnail, 0);
-		} catch (Exception e) {
-			// TODO: handle exception
-			holder.image_list_item_tumbnail.setImageResource(R.drawable.untitled);
+			view = inflater.inflate(R.layout.image_list_item, viewGroup, false);
+			holder.textViewTitle = (TextView) view.findViewById(R.id.textViewFragmentImageListItemTitle);
+			holder.textViewImage = (ImageView) view.findViewById(R.id.imageViewFragmentImageListItemImage);
+			view.setTag(holder);
+			
+		} else {
+			
+			holder = (ImageViewHolder) view.getTag();
+			
 		}
 
-		return v;
+		dataModel = getItem(position);
+		if (dataModel.getAlt() != null) {
+
+			view.setVisibility(View.VISIBLE);
+			
+			holder.textViewTitle.setTypeface(typeFace);// TTF
+			holder.textViewTitle.setText(dataModel.getAlt());
+
+			try {
+				Picasso.with(activity).load(dataModel.getSrc())//.fit()
+						.placeholder(loader).error(loader)
+						.into(holder.textViewImage);
+				
+			} catch (Exception e) {
+				holder.textViewImage.setImageResource(R.drawable.untitled);
+			}
+
+		} else {
+			view.setVisibility(View.GONE);
+		}
+		
+		return view;
 	}
 
 	private static class ImageViewHolder {
-		public TextView image_list_item_title;
-		public ImageView image_list_item_tumbnail;
+		public TextView textViewTitle;
+		public ImageView textViewImage;
 	}
 }

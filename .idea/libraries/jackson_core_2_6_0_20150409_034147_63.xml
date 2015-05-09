@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jackson-core-2.6.0-20150409.034147-63">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GagsViewer/libs/jackson-core-2.6.0-20150409.034147-63.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

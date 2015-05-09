@@ -7,9 +7,4 @@
         android:dashWidth="3dp"
         android:color="#acacac" />
 
-</shape><!--
-   <gradient
-        android:angle="270.0"
-        android:endColor="#fce082"
-        android:startColor="#ffcdcdcd" />
--->
+</shape>

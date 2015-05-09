@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GagsViewer.iml" filepath="$PROJECT_DIR$/GagsViewer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GagsViewer/GagsViewer-GagsViewer.iml" filepath="$PROJECT_DIR$/GagsViewer/GagsViewer-GagsViewer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ImageViewTouch/ImageViewTouch.iml" filepath="$PROJECT_DIR$/ImageViewTouch/ImageViewTouch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" filepath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcompat_v7/appcompat_v7.iml" filepath="$PROJECT_DIR$/appcompat_v7/appcompat_v7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mopub-sdk/mopub-sdk.iml" filepath="$PROJECT_DIR$/mopub-sdk/mopub-sdk.iml" />
+    </modules>
+  </component>
+</project>

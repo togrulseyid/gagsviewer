@@ -14,8 +14,6 @@ import java.util.WeakHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.togrulseyid.gags.viewer.R;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -27,6 +25,8 @@ import android.graphics.Matrix;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
+
+import com.togrulseyid.gags.viewer.R;
 
 public class ImageLoader extends Activity{
 	

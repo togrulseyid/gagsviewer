@@ -6,8 +6,6 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/library"/>
-	<classpathentry kind="src" path="/actionbarsherlock"/>
 	<classpathentry kind="src" path="/ImageViewTouch"/>
-	<classpathentry kind="lib" path="libs/mobilecore.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

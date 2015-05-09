@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-<resources>
+    <!-- res/values-vXX/styles.xml -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar"></style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="vpiCirclePageIndicatorStyle">@style/CustomCirclePageIndicator</item>
+        <item name="vpiLinePageIndicatorStyle">@style/CustomLinePageIndicator</item>
+        <item name="vpiTitlePageIndicatorStyle">@style/CustomTitlePageIndicator</item>
+        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
+        <item name="vpiUnderlinePageIndicatorStyle">@style/CustomUnderlinePageIndicator</item>
+        <!-- Action bar styles (defaults from Theme) -->
+        <!-- Internal -->
+        <item name="actionBarStyle">@style/GVActionBar</item>
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme.ActionBarOverlay" parent="AppBaseTheme">
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="actionBarStyle">@style/GVActionBar</item>
+    </style>
+
+    <!-- Application theme. DARK -->
+    <!-- <style name="AppTheme.ActionBarOverlay" parent="Theme.AppCompat"> -->
+    <!-- <item name="windowActionBarOverlay">true</item> -->
+    <!-- <item name="android:windowNoTitle">true</item> -->
+    <!-- </style> -->
+
+
+    <!-- ActionBar styles -->
+    <style name="GVActionBar" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="titleTextStyle">@style/FVActionBarTitleText</item>
+        <item name="displayOptions">showHome|useLogo|showTitle</item>
+        <item name="showText">true</item>
+<!--         <item name="background">@drawable/gv_actionbar_background</item> -->
+        <item name="background">@color/action_bar_background_red</item>
+    </style>
+
+    <style name="FVActionBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+<!--         <item name="android:textColor">@color/DarkRed</item> -->
+        <item name="android:textColor">@color/White</item>
+    </style>
+
+    <!-- SPLIT from old code -->
     <style name="Theme.D1NoTitleDim" parent="android:style/Theme.Translucent">
-	    <item name="android:windowNoTitle">true</item>
-	    <item name="android:windowContentOverlay">@null</item>
-	    <item name="android:backgroundDimEnabled">true</item>
-	    <item name="android:background">@android:color/transparent</item>        
-	</style>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 
-    
-    
     <style name="ButtonText">
         <item name="android:textSize">30.0dip</item>
         <item name="android:textStyle">bold</item>
@@ -22,113 +65,6 @@
         <item name="android:shadowDx">1.0</item>
         <item name="android:shadowDy">1.0</item>
         <item name="android:shadowRadius">2.0</item>
-    </style>
-    
-    
-    
-    <style name="StyledIndicators" parent="@android:style/Theme.Light.NoTitleBar">
-        
-        <item name="android:windowNoTitle">true</item>
-        <item name="vpiCirclePageIndicatorStyle">@style/CustomCirclePageIndicator</item>
-        <item name="vpiLinePageIndicatorStyle">@style/CustomLinePageIndicator</item>
-        <item name="vpiTitlePageIndicatorStyle">@style/CustomTitlePageIndicator</item>
-        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
-        <item name="vpiUnderlinePageIndicatorStyle">@style/CustomUnderlinePageIndicator</item>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-         <!-- Action bar styles (from Theme.Holo) -->
-        <item name="actionDropDownStyle">@style/Widget.Sherlock.Spinner.DropDown.ActionBar</item>
-        <item name="actionButtonStyle">@style/Widget.Sherlock.ActionButton</item>
-        <item name="actionOverflowButtonStyle">@style/Widget.Sherlock.ActionButton.Overflow</item>
-        <item name="actionModeBackground">@drawable/abs__cab_background_top_holo_dark</item>
-        <item name="actionModeSplitBackground">@drawable/abs__cab_background_bottom_holo_dark</item>
-        <item name="actionModeCloseDrawable">@drawable/abs__ic_cab_done_holo_dark</item>
-        <item name="actionBarTabStyle">@style/Widget.Sherlock.ActionBar.TabView</item>
-        <item name="actionBarTabBarStyle">@style/Widget.Sherlock.ActionBar.TabBar</item>
-        <item name="actionBarTabTextStyle">@style/Widget.Sherlock.ActionBar.TabText</item>
-        <item name="actionModeStyle">@style/Widget.Sherlock.ActionMode</item>
-        <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.ActionButton.CloseMode</item>
-        <item name="actionBarStyle">@style/Widget.Sherlock.ActionBar</item>
-        <item name="actionBarSize">@dimen/abs__action_bar_default_height</item>
-        <!-- Internal --><item name="actionModePopupWindowStyle">@style/Widget.Sherlock.PopupWindow.ActionMode</item>
-        <item name="actionBarWidgetTheme">@null</item>
-
-        <!-- Action bar styles (defaults from Theme) -->
-        <item name="actionBarSplitStyle">?attr/actionBarStyle</item>
-        <item name="actionMenuTextAppearance">@style/TextAppearance.Sherlock.Widget.ActionBar.Menu</item>
-        <item name="actionMenuTextColor">?attr/textColorPrimary</item>
-        <item name="actionBarDivider">?attr/dividerVertical</item>
-        <item name="actionBarItemBackground">?attr/selectableItemBackground</item>
-
-        <item name="buttonStyleSmall">@style/Widget.Sherlock.Button.Small</item>
-
-        <item name="selectableItemBackground">@drawable/abs__item_background_holo_dark</item>
-
-        <item name="activatedBackgroundIndicator">@drawable/abs__activated_background_holo_dark</item>
-        <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_dark</item>
-        <item name="activityChooserViewStyle">@style/Widget.Sherlock.ActivityChooserView</item>
-
-        <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_dark</item>
-
-        <item name="dividerVertical">@drawable/abs__list_divider_holo_dark</item>
-
-        <item name="spinnerDropDownItemStyle">@style/Widget.Sherlock.DropDownItem.Spinner</item>
-        <item name="spinnerItemStyle">@style/Widget.Sherlock.TextView.SpinnerItem</item>
-
-        <item name="textColorPrimary">@color/abs__primary_text_holo_dark</item>
-        <item name="textColorPrimaryDisableOnly">@color/abs__primary_text_disable_only_holo_dark</item>
-        <item name="textColorPrimaryInverse">@color/abs__primary_text_holo_light</item>
-
-        <!-- Internal --><item name="dropdownListPreferredItemHeight">48dip</item>
-        <item name="dropDownListViewStyle">@style/Widget.Sherlock.ListView.DropDown</item>
-
-        <item name="textAppearanceSmall">@style/TextAppearance.Sherlock.Small</item>
-        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.Sherlock.Widget.PopupMenu.Large</item>
-        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.Sherlock.Widget.PopupMenu.Small</item>
-        <item name="textAppearanceSearchResultTitle">@style/TextAppearance.Sherlock.SearchResult.Title</item>
-        <item name="textAppearanceSearchResultSubtitle">@style/TextAppearance.Sherlock.SearchResult.Subtitle</item>
-
-        <item name="popupMenuStyle">@style/Widget.Sherlock.PopupMenu</item>
-        <!-- Internal --><item name="listPopupWindowStyle">@style/Widget.Sherlock.ListPopupWindow</item>
-
-        <item name="searchDropdownBackground">@drawable/abs__search_dropdown_dark</item>
-        <item name="searchViewTextField">@drawable/abs__textfield_searchview_holo_dark</item>
-        <item name="searchViewTextFieldRight">@drawable/abs__textfield_searchview_right_holo_dark</item>
-        <item name="searchViewCloseIcon">@drawable/abs__ic_clear</item>
-        <item name="searchViewSearchIcon">@drawable/abs__ic_search</item>
-        <item name="searchViewGoIcon">@drawable/abs__ic_go</item>
-        <item name="searchViewVoiceIcon">@drawable/abs__ic_voice_search</item>
-        <item name="searchAutoCompleteTextView">@style/Widget.Sherlock.SearchAutoCompleteTextView</item>
-        <item name="dropDownHintAppearance">@style/TextAppearance.Sherlock.Widget.DropDownHint</item>
-        <item name="searchViewEditQuery">@drawable/abs__ic_commit_search_api_holo_dark</item>
-        <item name="searchViewEditQueryBackground">?selectableItemBackground</item>
-        <item name="searchResultListItemHeight">58dp</item>
-
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">true</item>
-        <item name="windowActionModeOverlay">false</item>
-        <item name="windowContentOverlay">@null</item>
-        
     </style>
 
     <style name="CustomTitlePageIndicator">
@@ -163,17 +99,15 @@
         <item name="android:textColor">#FF555555</item>
         <item name="android:textSize">16sp</item>
         <item name="android:divider">@drawable/custom_tab_indicator_divider</item>
-	   <item name="android:dividerPadding">10dp</item>
-	   <item name="android:showDividers">middle</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
         <item name="android:fadingEdge">horizontal</item>
         <item name="android:fadingEdgeLength">8dp</item>
-    </style><!--      <item name="android:dividerPadding">10dp</item>
-        <item name="android:showDividers">middle</item> -->
+    </style>
 
     <style name="CustomTabPageIndicator.Text" parent="android:TextAppearance.Medium">
         <item name="android:typeface">monospace</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="CustomUnderlinePageIndicator">
@@ -182,34 +116,19 @@
         <item name="fadeLength">1000</item>
         <item name="fadeDelay">1000</item>
     </style>
-    
-    
-    
-    
-    
-    
+
     <style name="dividedListStyle" parent="@android:style/Widget.ListView">
-	    <item name="android:cacheColorHint">@android:color/transparent</item>
-	    <item name="android:divider">@drawable/list_divider</item>
-	    <item name="android:dividerHeight">3dp</item>
-	</style>
-
-
-
-	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <!--
-	<style name="BlackNoBarsTheme" parent="android:Theme.Black.NoTitleBar.Fullscreen"/>
-	<style name="BlackNoTitleBarTheme" parent="android:Theme.Black.NoTitleBar"/>
-	-->
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:divider">@drawable/list_divider</item>
+        <item name="android:dividerHeight">3dp</item>
+    </style>
+    <!-- New Styles -->
+    <style name="Manads.EmptyList.TextView.Style" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/disabled_button_background_color</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
 
 </resources>

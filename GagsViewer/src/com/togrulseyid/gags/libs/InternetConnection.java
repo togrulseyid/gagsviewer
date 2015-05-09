@@ -9,6 +9,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+import com.togrulseyid.gags.constants.UrlConstants;
+
 /**
  * @author Togrul
  * @version 0.3
@@ -27,22 +29,14 @@ public class InternetConnection {
 	private static URL u ;
 
 	public static int checkStatus(String params) {
-//		ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-//		NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-//		boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 		
-		
-		params = Constants.CONNECTION_URL;
+		params = UrlConstants.CONNECTION_URL;
 		int status=0;
 		try {
 			u = new URL(params);
 			in = u.openStream();
 			isr = new InputStreamReader(in);
 			br = new BufferedReader(isr);
-//			String theLine="";
-//			while ((theLine = br.readLine()) != null) {
-//				theLineSum +=theLine;
-//			}			
 			theLineSum = br.readLine();			
 			status = Integer.valueOf(theLineSum);
 		} catch (Exception e) {
@@ -57,41 +51,4 @@ public class InternetConnection {
 		
 		return status;
 	}
-	
-	
-	
-// check Internet status effectively
-//	public static int checkStatus(String params, Context context) {
-//		
-//		ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-//		NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-//		boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
-//		int status=0;
-//		
-//		
-//		if (!isConnected){
-//			return 0;
-//		} else {
-//			params = Constants.CONNECTION_URL;
-//			
-//			try {
-//				u = new URL(params);
-//				in = u.openStream();
-//				isr = new InputStreamReader(in);
-//				br = new BufferedReader(isr);		
-//				theLineSum = br.readLine();			
-//				status = Integer.valueOf(theLineSum);
-//			} catch (Exception e) {
-//				return 0;
-//	   		} finally {
-//	   			theLineSum = null;
-//	   			u = null; 
-//	   			in = null;
-//	   			isr = null;
-//	   			br = null;
-//	   		}
-//		}
-//		
-//		return status;
-//	}
 }

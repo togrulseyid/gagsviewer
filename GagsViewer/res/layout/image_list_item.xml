@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <TextView
-        android:paddingTop="20dp"
-        android:id="@+id/image_list_item_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/loading"
-        android:textColor="#8B4513"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:typeface="serif" />
+    android:background="@drawable/dark_shadow"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:visibility="gone" >
 
     <ImageView
-        android:id="@+id/image_list_item_tumbnail"
+        android:id="@+id/imageViewFragmentImageListItemImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_list_item_chanelfeed_img_height"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutwListItemChanelInfoLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="center"
-        android:contentDescription="@string/app_name" />
+        android:layout_alignBottom="@+id/imageViewFragmentImageListItemImage"
+        android:layout_centerHorizontal="true"
+        android:background="@color/color_black_list_item_channels_followers"
+        android:orientation="vertical"
+        android:padding="10dp" >
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textViewFragmentImageListItemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/loading"
+            android:textColor="#8B4513"
+            android:maxLines="2"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+        <!-- 8B4513  9370DB -->
+    </LinearLayout>
+
+</RelativeLayout>

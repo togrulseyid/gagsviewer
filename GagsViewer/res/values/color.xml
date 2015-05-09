@@ -32,10 +32,8 @@
     <color name="Fuchsia">#FF00FF</color>
     <color name="Magenta">#FF00FF</color>
     <color name="Red">#FF0000</color>
-    
     <color name="Red4ic1">#ed1b24</color>
     <color name="Red4ic2">#b6292f</color>
-    
     <color name="OldLace">#FDF5E6</color>
     <color name="LightGoldenrodYellow">#FAFAD2</color>
     <color name="Linen">#FAF0E6</color>
@@ -61,7 +59,7 @@
     <color name="Lavender">#E6E6FA</color>
     <color name="LightCyan">#E0FFFF</color>
     <color name="BurlyWood">#DEB887</color>
-    <color name="DarkSlateGray">#2F4F4F</color>    		
+    <color name="DarkSlateGray">#2F4F4F</color>
     <color name="Plum">#DDA0DD</color>
     <color name="Gainsboro">#DCDCDC</color>
     <color name="Crimson">#DC143C</color>
@@ -155,19 +153,28 @@
     <color name="TundBoz">#CCCC99</color>
     <color name="Word">#0099CC</color>
     <color name="polydroid">#bfbfbf</color>
-    
-    
-	
-	<color name="JokesColor">#BB6008</color>
-	<color name="JokesColorPressed">#F3AE1B</color>
-    
-    
+    <color name="JokesColor">#BB6008</color>
+    <color name="JokesColorPressed">#F3AE1B</color>
     <color name="listitemfocus">#CCCCCC</color>
     <color name="listitempress">#0099CC</color>
     <color name="color_dark_orange">#FFA500</color>
+
+    <drawable name="ab_bg_black">#aa000000</drawable>
+    <drawable name="Teal">#008080</drawable>
+
+    <color name="disabled_button_background_color">#aeaeae</color>
+    <color name="color_black_list_item_channels_followers_light">#efefef</color>
+    <color name="color_black_list_item_channels_followers_hard">#D9000000</color>
+    <color name="color_black_list_item_channels_followers">#A6000000</color>
+
+    <!-- List Selector -->
+    <color name="list_selector_background_disabled">#A6000000</color>
+    <color name="list_selector_background_focus">#BB6008</color>
     
-	<drawable name="ab_bg_black">#aa000000</drawable>
-	<drawable name="Teal">#008080</drawable>
-	
-	
+    
+    <color name="action_bar_background_red">#FFAA2222</color>
+    
+    
+    
+
 </resources>

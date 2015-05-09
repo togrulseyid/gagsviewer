@@ -4,11 +4,11 @@
     android:configChanges="orientation"
     android:installLocation="auto"
     android:versionCode="7"
-    android:versionName="betta-1.0" >
+    android:versionName="@string/app_version" >
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -24,10 +24,10 @@
         android:label="@string/app_name"
         android:largeHeap="true" >
         <activity
-            android:name="com.togrulseyid.gags.main.Splash"
+            android:name="com.togrulseyid.gags.activity.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,11 +35,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.togrulseyid.gags.main.GagsViewer"
+            android:name="com.togrulseyid.gags.activity.GagsViewerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/StyledIndicators" >
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="com.togrulseyid.gags.main.GAGSVIEWER" />
 
@@ -47,41 +47,52 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.togrulseyid.gags.activity.GagsInfoActivity"
+            android:label="@string/title_activity_info"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name="com.togrulseyid.gags.activity.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
             android:name="com.togrulseyid.gags.viewers.AnimationViewer"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"
             android:noHistory="true"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@style/Theme.AppCompat" >
         </activity>
         <activity
             android:name="com.togrulseyid.gags.viewers.ImageViewer"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@style/Theme.AppCompat" >
         </activity>
         <activity
             android:name="com.togrulseyid.gags.viewers.JokeViewer"
             android:configChanges="keyboardHidden|orientation"
-            android:label="@string/preference" >
+            android:label="@string/preference"
+            android:theme="@style/AppTheme.ActionBarOverlay" >
         </activity>
         <activity
             android:name="com.togrulseyid.gags.viewers.VideoViewer"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/fullscreen_demo_name"
             android:screenOrientation="sensor"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@style/Theme.AppCompat" >
 
-            <!-- BlackNoTitleBarTheme -->
+            <!-- android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > -->
         </activity>
         <activity
-            android:name="com.togrulseyid.gags.main.Preference"
+            android:name="com.togrulseyid.gags.activity.Preference"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/preference" >
         </activity>
 
         <!-- Buda Teze -->
         <activity
-            android:name="com.togrulseyid.gags.main.Search"
+            android:name="com.togrulseyid.gags.activity.Search"
             android:label="@string/search_views" >
         </activity>
         <activity
@@ -97,25 +108,23 @@
             android:label="Graphics/BitmapDecode" >
         </activity>
         <activity
-            android:name="com.togrulseyid.gags.main.AnimatedActivity"
+            android:name="com.togrulseyid.gags.activity.AnimatedActivity"
             android:label="@string/title_activity_animated" >
         </activity>
 
         <!-- ============================ Mopub ========================= -->
-        <!-- <activity android:configChangesname="com.mopub.mobileads.MoPubActivity" android:configChanges="keyboardHidden|orientation"/> -->
         <activity
             android:name="com.mopub.mobileads.MoPubActivity"
-            android:configChanges="keyboardHidden|orientation" />
-        <!-- configChangesname -->
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.mopub.mobileads.MraidActivity"
-            android:configChanges="keyboardHidden|orientation" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
-            android:name="com.mopub.mobileads.MraidBrowser"
-            android:configChanges="keyboardHidden|orientation" />
+            android:name="com.mopub.common.MoPubBrowser"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.mopub.mobileads.MraidVideoPlayerActivity"
-            android:configChanges="keyboardHidden|orientation" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.google.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
@@ -126,39 +135,6 @@
         <activity
             android:name="com.millennialmedia.android.VideoPlayer"
             android:configChanges="keyboardHidden|orientation|keyboard" />
-
-        <!-- =========================== AdMob ============================= -->
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-
-        <!--============================ AdMob =============================        
-        <activity android:name="com.google.android.gms.ads.AdActivity"
-             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
-        
-        <meta-data android:name="com.google.android.gms.version"
-               android:value="@integer/google_play_services_version"/>
-        
-		===============================================================-->
-        <!-- AdMob -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <!-- //AdMob -->
-
-        <!-- Mobilecore -->
-        <service
-            android:name="com.ironsource.mobilcore.MobileCoreReport"
-            android:enabled="true"
-            android:exported="false"
-            android:process=":mcServiceProcess" />
-
-        <receiver
-            android:name="com.ironsource.mobilcore.InstallationTracker"
-            android:enabled="true"
-            android:process=":installationTracker" />
-        <!-- //Mobilecore -->
-
     </application>
 
 </manifest>

@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:background="@drawable/red_button"
-        android:text="@string/exit" />
+        android:text="@string/title_menu_exit" />
 
     <ImageView
         android:id="@+id/imageButton11"

@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.togrulseyid.gags.viewers.VideoViewer" >
 
-	<item
-        android:id="@+id/share_video"
-        android:actionProviderClass="com.actionbarsherlock.widget.ShareActionProvider"
-        android:showAsAction="ifRoom"
-        android:title="@string/action_bar_share_with"/>
-    
     <item
-        android:id="@+id/save_video"
-        android:showAsAction="ifRoom"
-        android:icon="@drawable/ic_action_save"
-        android:title="@string/action_bar_save"/>
+        android:id="@+id/more"
+        android:icon="@drawable/abc_ic_menu_moreoverflow_mtrl_alpha"
+        android:orderInCategory="100"
+        android:title=""
+        app:showAsAction="always">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/share_video"
+                    android:icon="@drawable/abc_ic_menu_share_mtrl_alpha"
+                    android:orderInCategory="100"
+                    android:title="@string/action_bar_share_with"
+                    app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
+                    app:showAsAction="always"/>
+                <item
+                    android:id="@+id/save_video"
+                    android:icon="@drawable/ic_action_save"
+                    android:orderInCategory="100"
+                    android:title="@string/action_bar_save"
+                    app:showAsAction="always"/>
+            </group>
+        </menu>
+    </item>
 
 </menu>

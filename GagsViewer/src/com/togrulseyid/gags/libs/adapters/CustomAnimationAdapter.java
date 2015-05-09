@@ -1,10 +1,8 @@
 package com.togrulseyid.gags.libs.adapters;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.Activity;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,39 +11,35 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.togrulseyid.gags.libs.ImageLoader2Video;
+import com.squareup.picasso.Picasso;
+import com.togrulseyid.gags.models.DataModel;
 import com.togrulseyid.gags.viewer.R;
 
 public class CustomAnimationAdapter extends BaseAdapter {
-	
-	private ArrayList<HashMap<String, String>> gagsList;
-	LayoutInflater inflater;
-	ImageLoader2Video imgLoader;
-	private Typeface myFont1;	
-	int loader = R.drawable.loader;
-	
-	public CustomAnimationAdapter(Context context, ArrayList<HashMap<String, String>> gagsList ) {
-		this.gagsList = gagsList;
-		
-		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		imgLoader = new ImageLoader2Video(context);
-		myFont1 = Typeface.createFromAsset(context.getAssets(), "ttf/angrybirds_regular.ttf");	
+
+	private ArrayList<DataModel> dataModels;
+	private DataModel dataModel;
+	private LayoutInflater inflater;
+	private Typeface typeFace;
+	private int loader = R.drawable.loader;
+	private Activity activity;
+
+	public CustomAnimationAdapter(Activity activity, ArrayList<DataModel> gagsList) {
+		this.activity = activity;
+		this.dataModels = gagsList;
+
+		inflater = this.activity.getLayoutInflater();
+		typeFace = Typeface.createFromAsset(this.activity.getAssets(), "ttf/angrybirds_regular.ttf");
 	}
 
 	@Override
 	public int getCount() {
-		int size = 0;
-		try {
-			size = gagsList.size();
-		} catch (Exception e) {
-//			return 0;
-		}
-		return size;
+		return dataModels.size();
 	}
 
 	@Override
-	public HashMap<String, String> getItem(int position) {
-		return gagsList.get(position);
+	public DataModel getItem(int position) {
+		return dataModels.get(position);
 	}
 
 	@Override
@@ -53,46 +47,71 @@ public class CustomAnimationAdapter extends BaseAdapter {
 		return itemId;
 	}
 
-	
-//	 TextView animation_list_item_title ;
-//	 ImageView animation_list_item_tumbnail ;
-	 
-	@SuppressLint({ "NewApi", "ResourceAsColor" })
-	public View getView(int position, View view, ViewGroup viewGroup) {
-		View v = view;
-		AnimationViewHolder holder = null;
+	private ImageViewHolder holder = null;
+	public View getView(int position, View viewConvert, ViewGroup viewGroup) {
+		
+		View view = viewConvert;
+
 		if (view == null) {
-			holder = new AnimationViewHolder();
-	        v = inflater.inflate(R.layout.animation_list_item, null);
-	        holder.animation_list_item_title = (TextView) v.findViewById(R.id.animation_list_item_title);
-	        holder.animation_list_item_tumbnail = (ImageView) v.findViewById(R.id.animation_list_item_image);
-	        v.setTag(holder);
-	    } else 
-	        holder = (AnimationViewHolder) v.getTag();
-	   
-		holder.animation_list_item_title.setTypeface(myFont1);// TTF
-	    holder.animation_list_item_title.setText(getItem(position).get("alt"));
-	    
-		try {
-			imgLoader.DisplayImage2Video(getItem(position).get("src"), loader, holder.animation_list_item_tumbnail);
-//				imgLoader.DisplayImage(getItem(position).get("src"), loader, holder.animation_list_item_tumbnail,1);
-		} catch (Exception e) {
-			holder.animation_list_item_tumbnail.setImageResource(R.drawable.untitled);
+
+			holder = new ImageViewHolder();
+			view = inflater.inflate(R.layout.animation_list_item, viewGroup, false);
+			holder.textViewTitle = (TextView) view.findViewById(R.id.animation_list_item_title);
+			holder.imageViewPhoto = (ImageView) view.findViewById(R.id.animation_list_item_image);
+			view.setTag(holder);
+			
+		} else {
+			
+			holder = (ImageViewHolder) view.getTag();
+			
 		}
 
-		    return v;
+		dataModel = getItem(position);
+		if (dataModel.getSrc() != null) {
+
+			view.setVisibility(View.VISIBLE);
+			
+			holder.textViewTitle.setTypeface(typeFace);// TTF
+			holder.textViewTitle.setText(dataModel.getAlt());
+
+			Picasso.with(activity).load(dataModel.getSrc()).placeholder(loader)
+					.error(loader).into(holder.imageViewPhoto);
+
+//			try {
+////				Picasso.with(activity).load(dataModel.getSrc()).fit()
+////						.placeholder(loader).error(loader)
+////						.into(holder.imageViewPhoto);
+//				
+//				Picasso.with(activity).load(dataModel.getSrc()).into(new Target() {
+//					
+//					@Override
+//					public void onPrepareLoad(Drawable arg0) {
+//					}
+//					
+//					@Override
+//					public void onBitmapLoaded(Bitmap bitmap, LoadedFrom arg1) {
+//						holder.imageViewPhoto.setImageBitmap(bitmap);
+//					}
+//					
+//					@Override
+//					public void onBitmapFailed(Drawable arg0) {
+//						holder.imageViewPhoto.setBackgroundResource(loader);
+//					}
+//				});
+//				
+//			} catch (Exception e) {
+//				holder.imageViewPhoto.setImageResource(R.drawable.untitled);
+//			}
+
+		} else {
+			view.setVisibility(View.GONE);
 		}
-	
-	private static class AnimationViewHolder {
-		TextView animation_list_item_title;
-		ImageView animation_list_item_tumbnail;
-	}	
-	
-	@Override
-	public int getViewTypeCount() {
-	    if (getCount() != 0)
-	        return getCount();
-	
-	    return 1;
+		
+		return view;
+	}
+
+	private static class ImageViewHolder {
+		public TextView textViewTitle;
+		public ImageView imageViewPhoto;
 	}
 }

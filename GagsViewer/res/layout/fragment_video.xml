@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/color_black_list_item_channels_followers_light"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textViewVideoTapToRefresh"
+        style="@style/Manads.EmptyList.TextView.Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:drawableTop="@drawable/tap_to_refresh_selector"
+        android:text="@string/message_internet_connection_problem"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textViewVideoNothing"
+        style="@style/Manads.EmptyList.TextView.Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/message_nothin_in_list"
+        android:visibility="gone" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/listViewVideoFragmentList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="@dimen/listViewDividerHeightNewsFeedFragmentList"
+        android:fadingEdge="none"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="@drawable/newsfeed_list_selector"
+        android:paddingBottom="@dimen/activity_vertical_horizontal_margin_half"
+        android:paddingLeft="@dimen/activity_vertical_horizontal_margin_half"
+        android:paddingRight="@dimen/activity_vertical_horizontal_margin_half"
+        android:scrollbars="none"
+        ptr:ptrShowIndicator="false" />
+
+</RelativeLayout>

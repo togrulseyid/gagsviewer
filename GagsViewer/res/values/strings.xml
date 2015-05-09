@@ -2,6 +2,44 @@
 <resources>
 
     <string name="app_name">Gags Viewer</string>
+    <string name="title_activity_info">About GagsViewer</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="app_version">1.0</string>
+
+    <!-- Message text -->
+    <string name="message_internet_connection_problem">No internet connection</string>
+    <string name="message_nothin_in_list">No content</string>
+    <string name="message_network_connection_problem">No network connection</string>
+    <string name="message_loading">Loading&#8230;</string>
+    <string name="message_server_connection_problem">Server connection problem</string>
+    <string name="message_server_error">Server error</string>
+    <string name="message_exception">Server connection problem</string>
+    <string name="message_missing_data">Missing data!</string>
+    <string name="message_default">Something went wrong!</string>
+    <string name="message_error_no_lang_choosen">You must choose at least one content language</string>
+
+    <!-- Languages -->
+    <string name="text_view_lang_az">AZ</string>
+    <string name="text_view_lang_en">EN</string>
+    <string name="text_view_lang_ru">RU</string>
+    <string name="text_view_lang_tr">TR</string>
+    <string name="text_lang_1">Azərbaycanca</string>
+    <string name="text_lang_2">English</string>
+    <string name="text_lang_3">Русский</string>
+    <string name="text_lang_4">Türkçe</string>
+    <string name="text_view_lang_text">SELECT LANGUAGE</string>
+
+    <!-- CONSTANTS -->
+    <string name="_STRING_FORMAT_VERSION_NAME">Version %1$s</string>
+
+    <!-- MENU -->
+    <string name="title_menu_item_clear_memory_cache">Clear memory cache</string>
+    <string name="title_menu_clear_cache">Clear Cahce</string>
+    <string name="title_menu_settings">Settings</string>
+    <string name="title_menu_about">About Us</string>
+    <string name="title_menu_exit">Exit</string>
+
+    <!--  -->
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello Gags viewer!</string>
     <string name="title">Title:</string>
@@ -12,12 +50,8 @@
     <string name="connectionerr">Connection Error :(</string>
     <string name="loadMoreButton">Load more</string>
     <string name="aboutUS">Gags Viewer best images, animations, videos, jokes content provider</string>
-    <string name="about">About Us</string>
     <string name="version">Version 1.0</string>
-    <string name="menu_item_clear_memory_cache">Clear memory cache</string>
-    <string name="menu_clear_cache">Clear Cahce</string>
     <string name="menu_item_clear_cache">Clear disc cache</string>
-    <string name="exit">Exit</string>
     <string name="refresh">Refresh</string>
     <string name="search">Search</string>
     <string name="no_internet_connection"> You have no internet connection!</string>
@@ -52,16 +86,11 @@
     <string name="chk_jokes">Jokes</string>
     <string name="chk_text">Select to Search</string>
     <string name="chk_more">Click For Advanced Search</string>
-
-  
-	<string name="play">play</string>
-	<string name="pause">pause</string>
-	<string name="stop">stop</string>
-	<string name="next_frame">next frame</string>
-	<string name="prev_frame">prev frame</string>
-
-
-
+    <string name="play">play</string>
+    <string name="pause">pause</string>
+    <string name="stop">stop</string>
+    <string name="next_frame">next frame</string>
+    <string name="prev_frame">prev frame</string>
 
     <!-- Sherlock burdan bashdayir -->
 
@@ -154,12 +183,6 @@
     <string name="playerview_text">This is a YouTubePlayerView!</string>
     <string name="playerfragment_text">This is a YouTubePlayerFragment!</string>
     <string name="demo_select">Please select a demo:</string>
-    <!--
-         <string name="some_demos_disabled">* Your device is currently running Android API version <xliff:g id="current_version">%1$s</xliff:g>.</string>
-    <string name="list_item_disabled">Requires Android API version <xliff:g id="required_version">%1$s</xliff:g> or higher.</string>
-    -->
-    <string name="play">Play</string>
-    <string name="pause">Pause</string>
     <string name="skip_to">Skip To</string>
     <string name="seconds">secs</string>
     <string name="player_style">Player Style</string>
@@ -183,6 +206,14 @@
     <string name="error_thumbnail_view">There was an error initializing the YouTubeThumbnailView (%1$s)</string>
     <string name="error_player">There was an error initializing the YouTubePlayer </string>
     <string name="title_activity_image_zoom">Zoom(+/-)</string>
-    <string name="title_activity_animated">AnimatedActivity</string>
+    <string name="title_activity_animated">Animated</string>
+
+    <string-array name="university">
+        <item>MIT</item>
+        <item>TUM</item>
+        <item>Stanford</item>
+    </string-array>
+    
+    <string name="prompt_university">Universities</string>
 
 </resources>

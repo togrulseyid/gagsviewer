@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jackson-annotations-2.6.0-20150402.184639-2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GagsViewer/libs/jackson-annotations-2.6.0-20150402.184639-2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

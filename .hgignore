@@ -1,0 +1,7 @@
+syntax: glob
+appcompat_v7/bin/
+PullToRefresh/bin/
+library/bin/
+mopub-sdk/bin/
+actionbarsherlock/bin/
+GagsViewer/bin/
