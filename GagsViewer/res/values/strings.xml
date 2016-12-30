@@ -39,6 +39,29 @@
     <string name="title_menu_about">About Us</string>
     <string name="title_menu_exit">Exit</string>
 
+
+    <!-- Dialogs -->
+    <string name="title_dialog_info">Info</string>
+    <string name="title_dialog_approve">Approve</string>
+    <string name="title_dialog_feeling">YOUR REACTION?</string>
+    <string name="button_text_cancel">Cancel</string>
+    <string name="button_text_ok">OK</string>
+    <string name="button_text_approve">Approve</string>
+    <string name="title_change_post_language">Change Post Language</string>
+
+
+    <!--Settings Activity-->
+    <string name="text_view_settings_share_app">Share Application</string>
+    <string name="text_view_settings_rate_app">Rate Application</string>
+    <string name="text_view_settings_clear_history">Clear History</string>
+    <string name="text_view_settings_posts_language">Posts Language</string>
+    <string name="text_view_settings_app_version">Application Version</string>
+
+
+    <!-- INTENT -->
+    <string name="title_intent_send_to">Share via</string>
+    <string name="text_view_settings_share_intent_text">I started to use GagsViewer Application: https://play.google.com/store/apps/details?id=com.togrulseyid.gags.viewer #GagsViewer</string>
+
     <!--  -->
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello Gags viewer!</string>
@@ -67,7 +90,7 @@
     <string name="create">Save</string>
     <string name="no_data">No Data</string>
 
-    <color name="gray">#ffff0000</color>
+    <!--<color name="gray">#ffff0000</color>-->
 
     <string name="err">Error</string>
     <string name="file_dialog">FileDialog</string>
@@ -213,7 +236,7 @@
         <item>TUM</item>
         <item>Stanford</item>
     </string-array>
-    
+
     <string name="prompt_university">Universities</string>
 
 </resources>

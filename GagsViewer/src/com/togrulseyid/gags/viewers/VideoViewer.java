@@ -18,7 +18,7 @@ import com.google.android.youtube.player.YouTubePlayer.OnInitializedListener;
 import com.google.android.youtube.player.YouTubePlayer.PlayerStyle;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
-import com.togrulseyid.gags.libs.Constants;
+import com.togrulseyid.gags.constants.Constants;
 import com.togrulseyid.gags.libs.youtube.DeveloperKey;
 import com.togrulseyid.gags.operations.Utility;
 import com.togrulseyid.gags.viewer.R;

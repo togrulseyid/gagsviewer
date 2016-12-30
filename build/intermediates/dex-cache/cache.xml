@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\exploded-aar\GagsViewer\mopub-sdk\unspecified\libs\MMSDK-5.3.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0caf3cd39dfd94dc3095e335d0b1ec9b7069b54e">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\MMSDK-5.3.0-1674ab2edf53809119cfe016568894fd59da5f3f.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\libs\YouTubeAndroidPlayerApi.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="78b8f6e37921559ed21c1fae1f30f9f713494db8">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\YouTubeAndroidPlayerApi-2fea9e0df2c701c204e7fd0b49ad2fcaad9f512e.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\exploded-aar\GagsViewer\library\unspecified\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="33b27a8d2a5b87e6eb6c60e87a5374ffbfeacc3a">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\android-support-v4-0ec699449e303cf06c04c23d336886dc30df97cd.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\libs\jackson-annotations-2.6.0-20150402.184639-2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="31e7cf590a37c0fc25d5440666e4187eb6f88d2e">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\jackson-annotations-2.6.0-20150402.184639-2-9f6d37683a1728458ecd59b3f23b234715fdd8ba.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\exploded-aar\GagsViewer\PullToRefresh\unspecified\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e3f54fc52d938606764bc65b93d4a5a6e2dcfa11">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\classes-3d3e8ae01723c2224d48c6ed32975a8eda1de735.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\libs\jackson-core-2.6.0-20150409.034147-63.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3350e73efd0a4d826ce87821af31ea1539540701">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\jackson-core-2.6.0-20150409.034147-63-db427fa48f0f8ebd71b498f23800e2f566984b95.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\exploded-aar\GagsViewer\mopub-sdk\unspecified\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ea89188bab4bb4d546ad98de176e40f12e3c51c0">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\classes-f6808751f9b0f848cf70d152137ce395608172cd.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\exploded-aar\GagsViewer\ImageViewTouch\unspecified\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9b077d1e3a6dd848f9b2d5b88202701a7b704886">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\classes-c1877f3e52aca914878c8bfa3b2a2aad5b5171cb.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\libs\httpcore-4.3.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="31fbbff1ddbf98f3aa7377c94d33b0447c646b6e">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\httpcore-4.3.2-aef03f3efd5e989366c97942dc19559413d82a8a.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\libs\jackson-databind-2.6.0-20150408.213503-166.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7d64317e1e896b52d9f03f9b5593f5ed7e9deec2">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\jackson-databind-2.6.0-20150408.213503-166-8ee9e718e4a270000fac85b98f539d53138051f0.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\exploded-aar\GagsViewer\appcompat_v7\unspecified\libs\android-support-v7-appcompat.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b69b7abb225c5d1ebf3bab999a276fab7ab8628c">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\android-support-v7-appcompat-2d585d7e040b24a7254f22323b0eb9c260966c18.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\libs\picasso-2.3.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\picasso-2.3.2-3d2b1ddc1465135240514214b619e19f3a1c6878.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\exploded-aar\GagsViewer\mopub-sdk\unspecified\libs\mopub-volley-1.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="26f5b5a49feafeaa18909c89c6d116612eafb617">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\mopub-volley-1.0.0-e4cb34415c856deeaf04ad19137bf21518a3286f.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\exploded-aar\GagsViewer\appcompat_v7\unspecified\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b2d81842898467d7a29bc57a4507733194872d51">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\classes-11eff461f60dcc1a8914e713afadc4204743666c.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\libs\libGoogleAnalyticsServices.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e887c6c9b31b39a39b0eaba981448b78902ea813">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\libGoogleAnalyticsServices-38f2ed44da0ed80ef47252a56ea7c0d1d57540fa.jar" />
+    </item>
+    <item
+        jar="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\exploded-aar\GagsViewer\library\unspecified\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="33791678e94bea5df660a8f62b36ba1dd660eece">
+        <dex dex="E:\MyApp\GagsViewer\GagsViewer\build\intermediates\pre-dexed\debug\classes-8167ac3746fb53888097c367bc59c020f4406d88.jar" />
+    </item>
+
+</items>

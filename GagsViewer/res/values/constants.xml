@@ -2,9 +2,13 @@
 <resources>
 
     <!-- SharedPreferences constants -->
-    <string name="_SP_MOBCHANNEL">spMobChannel</string>
+    <string name="_SP_GAGS_VIEWER">spGagsViewer</string>
 
     <!-- APP_VERSION -->
-    <string name="_APP_VERSION">1.0.0</string>
+    <string name="_APP_VERSION">1.1.0</string>
+
+
+    <!--SHARED PREFERENCE-->
+    <string name="_SP_POSTS_LANG">spPostLang</string>
 
 </resources>

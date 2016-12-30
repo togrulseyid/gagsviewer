@@ -34,7 +34,7 @@ import android.os.Environment;
 import android.text.Html;
 import android.util.Log;
 
-import com.togrulseyid.gags.libs.Constants;
+import com.togrulseyid.gags.constants.Constants;
 import com.togrulseyid.gags.viewer.R;
 
 

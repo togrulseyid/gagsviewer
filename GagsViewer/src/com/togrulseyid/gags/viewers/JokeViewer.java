@@ -23,7 +23,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.ZoomControls;
 
-import com.togrulseyid.gags.libs.Constants;
+import com.togrulseyid.gags.constants.Constants;
 import com.togrulseyid.gags.operations.Utility;
 import com.togrulseyid.gags.viewer.R;
 import com.togrulseyid.gags.viewers.dialogs.FileDialog;

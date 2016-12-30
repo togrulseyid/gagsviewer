@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#f6f6f6"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDialogConfirmTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/background_action_bar"
+            android:gravity="start"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textViewDialogConfirmMessageTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/viewseperator"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/linearLayoutDialogConfirmTitle"
+            android:background="@color/background_action_bar_light" />
+
+        <TextView
+            android:id="@+id/textViewDialogConfirmMessageBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/viewseperator"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/background_dark"
+            android:typeface="monospace"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/linearLayoutDialogConfirmMessageBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewDialogConfirmMessageBody"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"></LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDialogConfirmMessageFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayoutDialogConfirmMessageBody"
+            android:layout_marginTop="20dp"
+            android:background="#d7d6d6"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:paddingTop="1dp"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/buttonDialogConfirmCancel"
+                style="@style/AllFine.Button.Style.White"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="@string/button_text_cancel"
+                android:typeface="monospace" />
+
+            <Button
+                android:id="@+id/buttonDialogConfirmOK"
+                style="@style/AllFine.Button.Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="@string/button_text_approve"
+                android:typeface="monospace" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

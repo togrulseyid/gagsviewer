@@ -19,9 +19,9 @@ import com.mopub.mobileads.MoPubErrorCode;
 import com.mopub.mobileads.MoPubView;
 import com.mopub.mobileads.MoPubView.BannerAdListener;
 import com.togrulseyid.gags.library.TabPageIndicator;
-import com.togrulseyid.gags.libs.Constants;
+import com.togrulseyid.gags.constants.Constants;
 import com.togrulseyid.gags.libs.ImageLoader;
-import com.togrulseyid.gags.libs.adapters.GagsViewerInnerAdapter;
+import com.togrulseyid.gags.adapters.GagsViewerInnerAdapter;
 import com.togrulseyid.gags.viewer.R;
 
 

@@ -27,20 +27,15 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.togrulseyid.gags.constants.BusinessConstants;
 import com.togrulseyid.gags.enums.MessagesEnum;
-import com.togrulseyid.gags.libs.Constants;
-import com.togrulseyid.gags.libs.adapters.CustomJokeAdapter;
+import com.togrulseyid.gags.constants.Constants;
+import com.togrulseyid.gags.adapters.CustomJokeAdapter;
 import com.togrulseyid.gags.models.CoreModel;
 import com.togrulseyid.gags.models.DataModel;
 import com.togrulseyid.gags.models.DataModelArrayList;
 import com.togrulseyid.gags.operations.NetworkOperations;
 import com.togrulseyid.gags.viewer.R;
 import com.togrulseyid.gags.viewers.JokeViewer;
-
-/**
- * كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۖ ثُمَّ إِلَيْنَا تُرْجَعُونَ
- * */
 
 public class GagsJokesFragment extends Fragment {
 
@@ -56,7 +51,7 @@ public class GagsJokesFragment extends Fragment {
 	private TextView textViewChannelFeedNothing;
 	private SharedPreferences sharedPref;
 
-	public static GagsJokesFragment newInstance(String content) {
+	public static GagsJokesFragment newInstance() {
 		GagsJokesFragment fragment = new GagsJokesFragment();
 		return fragment;
 	}
@@ -65,6 +60,7 @@ public class GagsJokesFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		context = getActivity();
+		sharedPref = getActivity().getSharedPreferences(getString(R.string._SP_GAGS_VIEWER), Context.MODE_PRIVATE);
 
 		actionBar = ((ActionBarActivity)context).getSupportActionBar();
 	}
@@ -201,21 +197,17 @@ public class GagsJokesFragment extends Fragment {
 				startActivity(intent);
 				
 			} catch (Exception e) {
-				Toast.makeText(context, e.getMessage(), BusinessConstants.TOAST_TIME).show();
+				Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
 			}
 		}
 
 	}
 
 	private void saveData(int id) {
-		sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-		SharedPreferences.Editor editor = sharedPref.edit();
-		editor.putInt(getString(R.string.jokes_id), id);
-		editor.commit();
+		sharedPref.edit().putInt(getString(R.string.jokes_id), id).commit();
 	}
 
 	private int getData() {
-		sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
 		return sharedPref.getInt(getString(R.string.jokes_id), 1);
 	}
 

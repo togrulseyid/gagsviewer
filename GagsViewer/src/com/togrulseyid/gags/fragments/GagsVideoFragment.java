@@ -1,7 +1,5 @@
 package com.togrulseyid.gags.fragments;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,10 +25,9 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.togrulseyid.gags.constants.BusinessConstants;
 import com.togrulseyid.gags.enums.MessagesEnum;
-import com.togrulseyid.gags.libs.Constants;
-import com.togrulseyid.gags.libs.adapters.CustomVideoAdapter;
+import com.togrulseyid.gags.constants.Constants;
+import com.togrulseyid.gags.adapters.CustomVideoAdapter;
 import com.togrulseyid.gags.models.CoreModel;
 import com.togrulseyid.gags.models.DataModel;
 import com.togrulseyid.gags.models.DataModelArrayList;
@@ -38,275 +35,269 @@ import com.togrulseyid.gags.operations.NetworkOperations;
 import com.togrulseyid.gags.viewer.R;
 import com.togrulseyid.gags.viewers.VideoViewer;
 
-
-/**
- * كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۖ ثُمَّ إِلَيْنَا تُرْجَعُونَ
- * */
+import java.util.ArrayList;
 
 public class GagsVideoFragment extends Fragment {
 
-	private ArrayList<DataModel> dataModels;
-	private int postId;
-	private Context context;
-	private CustomVideoAdapter adapter;
-	private PullToRefreshListView listView;
-	private ActionBar actionBar;
-	private LoadVideoAsyncTask asynTask;
-	private TextView newsComplexViewTapToRefresh;
-	private TextView textViewAnimationNothing;
-	private SharedPreferences sharedPref;
-	
-    public static GagsVideoFragment newInstance(String content) {
-    	GagsVideoFragment fragment = new GagsVideoFragment();
+    private ArrayList<DataModel> dataModels;
+    private int postId;
+    private Context context;
+    private CustomVideoAdapter adapter;
+    private PullToRefreshListView listView;
+    private ActionBar actionBar;
+    private LoadVideoAsyncTask asynTask;
+    private TextView newsComplexViewTapToRefresh;
+    private TextView textViewAnimationNothing;
+    private SharedPreferences sharedPref;
+
+    public static GagsVideoFragment newInstance() {
+        GagsVideoFragment fragment = new GagsVideoFragment();
         return fragment;
     }
-    
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		context = getActivity();
-		actionBar = ((ActionBarActivity)getActivity()).getSupportActionBar();
-	}
 
-	@Override
-	public void onDestroy() {
-		if (postId > 1) {
-			saveData(postId - 1);
-		}
-		super.onDestroy();
-	}
-	
-	@Override
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        context = getActivity();
+        sharedPref = getActivity().getSharedPreferences(getString(R.string._SP_GAGS_VIEWER), Context.MODE_PRIVATE);
+
+        actionBar = ((ActionBarActivity) getActivity()).getSupportActionBar();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (postId > 1) {
+            saveData(postId - 1);
+        }
+        super.onDestroy();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-		postId = getData();
-		Log.d("testA", "postId: " + postId);
+        postId = getData();
+        Log.d("testA", "postId: " + postId);
 
-		View view = inflater.inflate(R.layout.fragment_video, container, false);
-		
-		listView = (PullToRefreshListView) view
-				.findViewById(R.id.listViewVideoFragmentList);
+        View view = inflater.inflate(R.layout.fragment_video, container, false);
 
-		newsComplexViewTapToRefresh = (TextView) view
-				.findViewById(R.id.textViewVideoTapToRefresh);
+        listView = (PullToRefreshListView) view
+                .findViewById(R.id.listViewVideoFragmentList);
 
-		textViewAnimationNothing = (TextView) view
-				.findViewById(R.id.textViewVideoNothing);
+        newsComplexViewTapToRefresh = (TextView) view
+                .findViewById(R.id.textViewVideoTapToRefresh);
 
-		newsComplexViewTapToRefresh
-				.setOnClickListener(new RefreshClickListener());
+        textViewAnimationNothing = (TextView) view
+                .findViewById(R.id.textViewVideoNothing);
 
-		listView.setOnScrollListener(new MyOnScrollListener(actionBar));
+        newsComplexViewTapToRefresh
+                .setOnClickListener(new RefreshClickListener());
 
-		if (dataModels == null) {
-			dataModels = new ArrayList<DataModel>();
-		}
+        listView.setOnScrollListener(new MyOnScrollListener(actionBar));
 
-		adapter = new CustomVideoAdapter(getActivity(), dataModels);
-		listView.setAdapter(adapter);
-		listView.setOnItemClickListener(new CustomItemOnItemClickListener());
-		listView.setOnRefreshListener(new CustomOnRefreshListener());
+        if (dataModels == null) {
+            dataModels = new ArrayList<DataModel>();
+        }
 
-		refreshList(true);
+        adapter = new CustomVideoAdapter(getActivity(), dataModels);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new CustomItemOnItemClickListener());
+        listView.setOnRefreshListener(new CustomOnRefreshListener());
 
-		return view;
+        refreshList(true);
+
+        return view;
     }
-	
-	public void saveData(int postId) {
-		sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-		SharedPreferences.Editor editor = sharedPref.edit();
-		editor.putInt(getString(R.string.video_id), postId);
-		editor.commit();
-	}
-	
-	public int getData() {
-		sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-		return sharedPref.getInt(getString(R.string.video_id), 1);
-	}
-	
-	private class LoadVideoAsyncTask extends
-			AsyncTask<Integer, Void, DataModelArrayList> {
 
-		private boolean isUp;
+    public void saveData(int postId) {
+        sharedPref.edit().putInt(getString(R.string.video_id), postId).commit();
+    }
 
-		public LoadVideoAsyncTask(boolean isUp) {
-			this.isUp = isUp;
-		}
+    public int getData() {
+        return sharedPref.getInt(getString(R.string.video_id), 1);
+    }
 
-		@Override
-		protected DataModelArrayList doInBackground(Integer... params) {
-			NetworkOperations networkOperations = new NetworkOperations(
-					getActivity());
-			return networkOperations.getVideoList(new CoreModel(params[0]));
-		}
+    private void refreshList(boolean isUp) {
+        setMenuVisibility(false);
 
-		@Override
-		protected void onPostExecute(DataModelArrayList result) {
-			super.onPostExecute(result);
+        if (dataModels != null && dataModels.size() == 0) {
 
-			if (isAdded() && !isCancelled()) {
+            dataModels.add(new DataModel());
+            listView.setMode(Mode.DISABLED);
+            adapter.notifyDataSetChanged();
 
-				if (result != null) {
+        }
 
-					if (result.getMessageId() != null
-							&& result.getMessageId().equals(
-									MessagesEnum.SUCCESSFUL.getCode())) {
+        listView.setRefreshing(false);
 
-						if (result.getList() != null) {
+        asynTask = new LoadVideoAsyncTask(isUp);
+        asynTask.execute(postId);
 
-							if (isUp) {
-								dataModels.clear();
-							}
+    }
 
-							for (DataModel imageModel : result.getList()) {
-								dataModels.add(imageModel);
-							}
+    private void isVisibleTapToRefreshView(boolean isVisible) {
+        if (isVisible) {
+            newsComplexViewTapToRefresh.setVisibility(View.VISIBLE);
+            listView.setVisibility(View.GONE);
+        } else {
+            newsComplexViewTapToRefresh.setVisibility(View.GONE);
+            textViewAnimationNothing.setVisibility(View.GONE);
+            listView.setVisibility(View.VISIBLE);
+        }
+    }
 
-						}
+    private class LoadVideoAsyncTask extends
+            AsyncTask<Integer, Void, DataModelArrayList> {
 
-						adapter.notifyDataSetChanged();
-						listView.onRefreshComplete();
-						listView.setMode(Mode.PULL_FROM_END);
+        private boolean isUp;
 
-					} else if (result.getMessageId() != null
-							&& (result.getMessageId().equals(
-									MessagesEnum.NO_INTERNET_CONNECTION
-											.getCode()) || result
-									.getMessageId().equals(
-											MessagesEnum.NO_NETWORK_CONNECTION
-													.getCode()))) {
-						isVisibleTapToRefreshView(true);
+        public LoadVideoAsyncTask(boolean isUp) {
+            this.isUp = isUp;
+        }
 
-					}else {
-						listView.onRefreshComplete();
-						listView.setMode(Mode.PULL_FROM_END);
-					}
+        @Override
+        protected DataModelArrayList doInBackground(Integer... params) {
+            NetworkOperations networkOperations = new NetworkOperations(
+                    getActivity());
+            return networkOperations.getVideoList(new CoreModel(params[0]));
+        }
 
-					postId++;
-				} else {
-					listView.onRefreshComplete();
-					listView.setMode(Mode.PULL_FROM_END);
-					isVisibleTapToRefreshView(true);
-				}
-			}
-		}
+        @Override
+        protected void onPostExecute(DataModelArrayList result) {
+            super.onPostExecute(result);
 
-	}
+            if (isAdded() && !isCancelled()) {
 
-	public class CustomItemOnItemClickListener implements OnItemClickListener {
+                if (result != null) {
 
-		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position,
-				long id) {
-			
-			try {
-				
-				Intent intent = new Intent(context, VideoViewer.class);
-				intent.putExtra(Constants.TAG_URL, dataModels.get(position - 1).getSrc());
-				intent.putExtra(Constants.TAG_ALT, dataModels.get(position - 1).getAlt());
-				startActivity(intent);
-				
-			} catch (Exception e) {
-				Toast.makeText(context, e.getMessage(), BusinessConstants.TOAST_TIME).show();
-			}
-		}
-	}
+                    if (result.getMessageId() != null
+                            && result.getMessageId().equals(
+                            MessagesEnum.SUCCESSFUL.getCode())) {
 
-	
-	private class MyOnScrollListener implements OnScrollListener,
-			OnScrollChangedListener {
+                        if (result.getList() != null) {
 
-		private ActionBar actionBar;
-		private int mLastFirstVisibleItem = 0;
+                            if (isUp) {
+                                dataModels.clear();
+                            }
 
-		public MyOnScrollListener(ActionBar actionBar) {
-			this.actionBar = actionBar;
-		}
+                            for (DataModel imageModel : result.getList()) {
+                                dataModels.add(imageModel);
+                            }
 
-		@Override
-		public void onScroll(AbsListView view, int firstVisibleItem,
-				int visibleItemCount, int totalItemCount) {
+                        }
 
-			final int currentFirstVisibleItem = listView.getRefreshableView()
-					.getFirstVisiblePosition();
+                        adapter.notifyDataSetChanged();
+                        listView.onRefreshComplete();
+                        listView.setMode(Mode.PULL_FROM_END);
 
-			if (currentFirstVisibleItem > mLastFirstVisibleItem) {
-				actionBar.hide();
-			} else if (currentFirstVisibleItem < mLastFirstVisibleItem) {
-				actionBar.show();
-			}
+                    } else if (result.getMessageId() != null
+                            && (result.getMessageId().equals(
+                            MessagesEnum.NO_INTERNET_CONNECTION
+                                    .getCode()) || result
+                            .getMessageId().equals(
+                                    MessagesEnum.NO_NETWORK_CONNECTION
+                                            .getCode()))) {
+                        isVisibleTapToRefreshView(true);
 
-			mLastFirstVisibleItem = currentFirstVisibleItem;
+                    } else {
+                        listView.onRefreshComplete();
+                        listView.setMode(Mode.PULL_FROM_END);
+                    }
 
-		}
+                    postId++;
+                } else {
+                    listView.onRefreshComplete();
+                    listView.setMode(Mode.PULL_FROM_END);
+                    isVisibleTapToRefreshView(true);
+                }
+            }
+        }
 
-		@Override
-		public void onScrollStateChanged(AbsListView view, int scrollState) {
-		}
+    }
 
-		@Override
-		public void onScrollChanged() {
-		}
+    public class CustomItemOnItemClickListener implements OnItemClickListener {
 
-	}
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position,
+                                long id) {
 
-	private class RefreshClickListener implements View.OnClickListener {
+            try {
 
-		@Override
-		public void onClick(View view) {
-			if (view.getId() == R.id.textViewAnimationTapToRefresh) {
-				isVisibleTapToRefreshView(false);
-				refreshList(true);
-			}
-		}
-	}
+                Intent intent = new Intent(context, VideoViewer.class);
+                intent.putExtra(Constants.TAG_URL, dataModels.get(position - 1).getSrc());
+                intent.putExtra(Constants.TAG_ALT, dataModels.get(position - 1).getAlt());
+                startActivity(intent);
 
-	private void refreshList(boolean isUp) {
-		setMenuVisibility(false);
+            } catch (Exception e) {
+                Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 
-		if (dataModels != null && dataModels.size() == 0) {
+    private class MyOnScrollListener implements OnScrollListener,
+            OnScrollChangedListener {
 
-			dataModels.add(new DataModel());
-			listView.setMode(Mode.DISABLED);
-			adapter.notifyDataSetChanged();
+        private ActionBar actionBar;
+        private int mLastFirstVisibleItem = 0;
 
-		}
+        public MyOnScrollListener(ActionBar actionBar) {
+            this.actionBar = actionBar;
+        }
 
-		listView.setRefreshing(false);
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem,
+                             int visibleItemCount, int totalItemCount) {
 
-		asynTask = new LoadVideoAsyncTask(isUp);
-		asynTask.execute(postId);
+            final int currentFirstVisibleItem = listView.getRefreshableView()
+                    .getFirstVisiblePosition();
 
-	}
+            if (currentFirstVisibleItem > mLastFirstVisibleItem) {
+                actionBar.hide();
+            } else if (currentFirstVisibleItem < mLastFirstVisibleItem) {
+                actionBar.show();
+            }
 
-	private void isVisibleTapToRefreshView(boolean isVisible) {
-		if (isVisible) {
-			newsComplexViewTapToRefresh.setVisibility(View.VISIBLE);
-			listView.setVisibility(View.GONE);
-		} else {
-			newsComplexViewTapToRefresh.setVisibility(View.GONE);
-			textViewAnimationNothing.setVisibility(View.GONE);
-			listView.setVisibility(View.VISIBLE);
-		}
-	}
+            mLastFirstVisibleItem = currentFirstVisibleItem;
 
-	private class CustomOnRefreshListener implements
-			OnRefreshListener2<ListView> {
+        }
 
-		@Override
-		public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+        }
 
-			refreshList(true);
+        @Override
+        public void onScrollChanged() {
+        }
 
-		}
+    }
 
-		@Override
-		public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+    private class RefreshClickListener implements View.OnClickListener {
 
-			refreshList(false);
+        @Override
+        public void onClick(View view) {
+            if (view.getId() == R.id.textViewAnimationTapToRefresh) {
+                isVisibleTapToRefreshView(false);
+                refreshList(true);
+            }
+        }
+    }
 
-		}
+    private class CustomOnRefreshListener implements
+            OnRefreshListener2<ListView> {
 
-	}
+        @Override
+        public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+
+            refreshList(true);
+
+        }
+
+        @Override
+        public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+
+            refreshList(false);
+
+        }
+
+    }
 
 }

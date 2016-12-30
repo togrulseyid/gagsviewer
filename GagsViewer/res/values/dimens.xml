@@ -14,4 +14,9 @@
     <!-- Image Height -->
     <dimen name="default_list_item_chanelfeed_img_height">300dp</dimen>
 
+    <!-- Button Style Values -->
+    <dimen name="manads_button_style_paddings">10dp</dimen>
+    <dimen name="manads_button_style_text_size">20sp</dimen>
+    <!-- ButtonSelectors -->
+    <dimen name="drawableButtonSelectorCorners">5dp</dimen>
 </resources>

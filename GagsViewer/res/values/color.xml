@@ -127,7 +127,7 @@
     <color name="Turquoise">#40E0D0</color>
     <color name="MediumSeaGreen">#3CB371</color>
     <color name="LimeGreen">#32CD32</color>
-    <color name="DarkSlateGray">#2F4F4F</color>
+    <!--<color name="DarkSlateGray">#2F4F4F</color>-->
     <color name="SeaGreen">#2E8B57</color>
     <color name="ForestGreen">#228B22</color>
     <color name="LightSeaGreen">#20B2AA</color>
@@ -170,11 +170,16 @@
     <!-- List Selector -->
     <color name="list_selector_background_disabled">#A6000000</color>
     <color name="list_selector_background_focus">#BB6008</color>
-    
-    
+
+
     <color name="action_bar_background_red">#FFAA2222</color>
-    
-    
-    
+
+
+    <!--DIALOG COLOR-->
+    <color name="drawableButtonSelectorSolidColor">#ececee</color>
+    <color name="background_action_bar_light">#88caf4</color>
+    <color name="background_action_bar">#42abed</color>
+    <color name="drawableButtonSelectorGradientColor">#e5e5e5</color>
+
 
 </resources>

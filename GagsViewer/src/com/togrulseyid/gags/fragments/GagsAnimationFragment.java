@@ -1,7 +1,5 @@
 package com.togrulseyid.gags.fragments;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,10 +25,9 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.togrulseyid.gags.constants.BusinessConstants;
 import com.togrulseyid.gags.enums.MessagesEnum;
-import com.togrulseyid.gags.libs.Constants;
-import com.togrulseyid.gags.libs.adapters.CustomAnimationAdapter;
+import com.togrulseyid.gags.constants.Constants;
+import com.togrulseyid.gags.adapters.CustomAnimationAdapter;
 import com.togrulseyid.gags.models.CoreModel;
 import com.togrulseyid.gags.models.DataModel;
 import com.togrulseyid.gags.models.DataModelArrayList;
@@ -38,9 +35,7 @@ import com.togrulseyid.gags.operations.NetworkOperations;
 import com.togrulseyid.gags.viewer.R;
 import com.togrulseyid.gags.viewers.AnimationViewer;
 
-/**
- * كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۖ ثُمَّ إِلَيْنَا تُرْجَعُونَ
- * */
+import java.util.ArrayList;
 
 public class GagsAnimationFragment extends Fragment {
 	
@@ -56,15 +51,15 @@ public class GagsAnimationFragment extends Fragment {
 	private TextView textViewAnimationNothing;
 	private SharedPreferences sharedPref;
 	
-    public static GagsAnimationFragment newInstance(String content) {
-        GagsAnimationFragment fragment = new GagsAnimationFragment();
-        return fragment;
+    public static GagsAnimationFragment newInstance() {
+        return new GagsAnimationFragment();
     }
     
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		context = getActivity();
+		sharedPref = getActivity().getSharedPreferences(getString(R.string._SP_GAGS_VIEWER), Context.MODE_PRIVATE);
 		actionBar = ((ActionBarActivity)getActivity()).getSupportActionBar();
 	}
 
@@ -99,7 +94,7 @@ public class GagsAnimationFragment extends Fragment {
 		listView.setOnScrollListener(new MyOnScrollListener(actionBar));
 
 		if (dataModels == null) {
-			dataModels = new ArrayList<DataModel>();
+			dataModels = new ArrayList<>();
 		}
 
 		adapter = new CustomAnimationAdapter(getActivity(), dataModels);
@@ -113,10 +108,7 @@ public class GagsAnimationFragment extends Fragment {
     }
 	
 	public void saveData(int postId) {
-		sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-		SharedPreferences.Editor editor = sharedPref.edit();
-		editor.putInt(getString(R.string.animation_id), postId);
-		editor.commit();
+		sharedPref.edit().putInt(getString(R.string.animation_id), postId).commit();
 	}
 	
 	public int getData() {
@@ -211,7 +203,7 @@ public class GagsAnimationFragment extends Fragment {
 				startActivity(intent);
 				
 			} catch (Exception e) {
-				Toast.makeText(context, e.getMessage(), BusinessConstants.TOAST_TIME).show();
+				Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
 			}
 		}
 	}

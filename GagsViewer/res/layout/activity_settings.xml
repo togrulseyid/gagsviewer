@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <!-- android:background="#FFF" -->
 
@@ -15,7 +15,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="15dp"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -37,9 +38,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="Posts Language"
+            android:background="@drawable/selector_settings_textview"
+            android:clickable="true"
+            android:onClick="postLanguageClick"
+            android:padding="15dp"
+            android:text="@string/text_view_settings_posts_language"
             android:textSize="16sp" />
 
         <View
@@ -51,9 +54,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="Clear History"
+            android:background="@drawable/selector_settings_textview"
+            android:clickable="true"
+            android:padding="15dp"
+            android:text="@string/text_view_settings_clear_history"
+            android:onClick="clearHistory"
             android:textSize="16sp" />
 
         <View
@@ -81,9 +86,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="Share App"
+            android:background="@drawable/selector_settings_textview"
+            android:clickable="true"
+            android:padding="15dp"
+            android:onClick="shareApp"
+            android:text="@string/text_view_settings_share_app"
             android:textSize="16sp" />
 
         <View
@@ -95,9 +102,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="Rate App"
+            android:background="@drawable/selector_settings_textview"
+            android:clickable="true"
+            android:padding="15dp"
+            android:text="@string/text_view_settings_rate_app"
+            android:onClick="rateApp"
             android:textSize="16sp" />
 
         <View
@@ -108,38 +117,37 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:padding="10dp"
-                android:text="App Version"
+                android:padding="15dp"
+                android:text="@string/text_view_settings_app_version"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:padding="10dp"
-                android:text="v3"
+                android:padding="15dp"
+                android:text="@string/_APP_VERSION"
                 android:textSize="12sp" />
         </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#000" />
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="#000" />-->
 
-        <Spinner
-            android:id="@+id/SpinnerCollegues"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/university"
-            android:prompt="@string/prompt_university"
-            app:spinnerMode="dropdown" />
+        <!--<Spinner-->
+            <!--android:id="@+id/SpinnerCollegues"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:entries="@array/university"-->
+            <!--android:prompt="@string/prompt_university"-->
+            <!--app:spinnerMode="dropdown" />-->
     </LinearLayout>
 
 </ScrollView>

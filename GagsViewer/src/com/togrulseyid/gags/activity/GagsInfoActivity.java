@@ -10,10 +10,6 @@ import android.widget.TextView;
 
 import com.togrulseyid.gags.viewer.R;
 
-/**
- * كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۖ ثُمَّ إِلَيْنَا تُرْجَعُونَ
- * */
-
 public class GagsInfoActivity extends ActionBarActivity {
 
 	private TextView textViewAppName;

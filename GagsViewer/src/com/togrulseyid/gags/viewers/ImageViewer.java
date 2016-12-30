@@ -42,7 +42,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.togrulseyid.gags.libs.Constants;
+import com.togrulseyid.gags.constants.Constants;
 import com.togrulseyid.gags.libs.FileCache;
 import com.togrulseyid.gags.libs.MemoryCache;
 import com.togrulseyid.gags.libs.Utils;

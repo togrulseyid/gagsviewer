@@ -5,3 +5,9 @@ library/bin/
 mopub-sdk/bin/
 actionbarsherlock/bin/
 GagsViewer/bin/
+GagsViewer/build/
+appcompat_v7/build/
+ImageViewTouch/build/
+library/build/
+mopub-sdk/build/
+PullToRefresh/build/
